@@ -9,7 +9,7 @@ module.exports = {
     'react-hot-loader/patch', // 激活HMR
     'webpack-dev-server/client',
     'webpack/hot/only-dev-server',
-    path.resolve(root, 'src/main.js')
+    path.resolve(root, 'src/js/index.js')
   ],
   // 出口文件
   output: {
@@ -21,13 +21,21 @@ module.exports = {
     hot: true, // 激活服务器的HMR
     contentBase: path.resolve(root, 'dist'),
     publicPath: '/',
-    port: 8080,
+    port: 8081,
     historyApiFallback: true
   },
   // loaders
   module: {
-    rules: [
-      {test: /\.jsx?$/, use: ['babel-loader'], exclude: /node_modules/}
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        use: ['babel-loader'],
+        exclude: /node_modules/
+      },
+      {
+        test: /\.scss$/,
+        loaders: ['style-loader', 'css-loader', 'sass-loader'],
+      }
     ]
   },
   plugins: [
