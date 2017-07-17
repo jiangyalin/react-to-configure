@@ -18,13 +18,6 @@ module.exports = {
     path: path.resolve(root, 'dist'),
     publicPath: '/'
   },
-  devServer: {
-    hot: true, // 激活服务器的HMR
-    contentBase: path.resolve(root, 'dist'),
-    publicPath: '/',
-    port: 8081,
-    historyApiFallback: true
-  },
   // loaders
   module: {
     loaders: [
@@ -38,11 +31,6 @@ module.exports = {
         include: path.resolve(__dirname, 'src/js'),
         loaders: [ 'style-loader', 'css-loader']
       }
-      // {
-      //   test: /\.css$/,
-      //   include: path.resolve(__dirname, 'src/js'),
-      //   loader: 'style-loader!css-loader'
-      // }
     ]
   },
   plugins: [
