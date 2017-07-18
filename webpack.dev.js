@@ -27,22 +27,20 @@ module.exports = {
   },
   // loaders
   module: {
-    loaders: [
+    rules: [
       {
-        test: /\.jsx?$/,
-        loaders: ['babel-loader'],
+        test: /\.js?$/,
+        use: ['babel-loader'],
         exclude: /node_modules/
       },
       {
-        test: /\.css$/,
+        test: /\.scss$/,
         include: path.resolve(__dirname, 'src/js'),
-        loaders: [ 'style-loader', 'css-loader']
+        use: [
+          'style-loader',
+          'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[local]___[hash:base64:5]'
+        ]
       }
-      // {
-      //   test: /\.css$/,
-      //   include: path.resolve(__dirname, 'src/js'),
-      //   loader: 'style-loader!css-loader'
-      // }
     ]
   },
   plugins: [

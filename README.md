@@ -71,7 +71,7 @@ ReactDOM.render(
 )
 修改package.json的scripts
 "scripts": {
-  "dev": "webpack --config webpack.dev.js"
+  "dev": "webpack --config webpack-dev-config.js"
 }
 测试看看，编译之后打开浏览器
 
@@ -139,7 +139,7 @@ module.exports = {
 package.json中的scripts修改如下：
 
 "scripts": {
-  "dev": "webpack-dev-server --config webpack.dev.js"
+  "dev": "webpack-dev-server --config webpack-dev-config.js"
 }
 通过npm run dev就可以启动一个本地服务器了，只要文件有改动，就会自动刷新浏览器
 

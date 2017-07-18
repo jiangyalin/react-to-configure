@@ -1,36 +1,33 @@
-// This file configures the development web server
-// which supports hot reloading and synchronized testing.
+// 配置开发Web服务器。
+// 支持热重加载和同步测试。
 
-// Require Browsersync along with webpack and middleware for it
-import browserSync from 'browser-sync';
-// Required for react-router browserHistory
-// see https://github.com/BrowserSync/browser-sync/issues/204#issuecomment-102623643
+import browserSync from 'browser-sync'; // 多平台同步刷新
 import historyApiFallback from 'connect-history-api-fallback';
 import webpack from 'webpack';
-import webpackDevMiddleware from 'webpack-dev-middleware';
-import webpackHotMiddleware from 'webpack-hot-middleware';
-import config from './webpack-dev-config';
+import webpackDevMiddleware from 'webpack-dev-middleware'; // 文件放入内存
+import webpackHotMiddleware from 'webpack-hot-middleware'; // 热启动
+import config from './webpack-dev-config'; // 引入配置文件
 
 const bundler = webpack(config);
 
-// Run Browsersync and use middleware for Hot Module Replacement
+// 热模块替换
 browserSync({
-  port: 8888,
+  port: 8889,
   ui: {
     port: 8889
   },
   server: {
     baseDir: 'src',
-
+    
+    // 中间件
     middleware: [
       historyApiFallback(),
 
       webpackDevMiddleware(bundler, {
-        // Dev middleware can't access config, so we provide publicPath
+        // 将中间件绑定到的公共路径
         publicPath: config.output.publicPath,
 
-        // These settings suppress noisy webpack output so only errors are displayed to the console.
-        noInfo: false,
+        noInfo: false, // 不显示控制台信息（仅警告和错误）
         quiet: false,
         stats: {
           assets: false,
@@ -40,19 +37,19 @@ browserSync({
           timings: false,
           chunks: false,
           chunkModules: false
-        },
+        }
 
-        // for other settings see
+        // 其他参数见
         // http://webpack.github.io/docs/webpack-dev-middleware.html
       }),
 
-      // bundler should be the same as above
+      // 热启动
       webpackHotMiddleware(bundler)
     ]
   },
 
   // no need to watch '*.js' here, webpack will take care of it for us,
-  // including full page reloads if HMR won't work
+  // 载如果HMR失败重载页面
   files: [
     'src/*.html'
   ]
