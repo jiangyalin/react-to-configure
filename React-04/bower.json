@@ -1,0 +1,20 @@
+{
+  "name": "react-demo",
+  "description": "",
+  "main": "",
+  "authors": [
+    "蒋亚林 <18725944157@163.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/jiangyalin/react-demo",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}

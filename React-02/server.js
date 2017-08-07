@@ -21,7 +21,7 @@ browserSync({
     
     // 中间件
     middleware: [
-      historyApiFallback(),
+      historyApiFallback(), // 对于正在使用HTML 5历史记录API的应用程序，可以追溯到index.html
 
       webpackDevMiddleware(bundler, {
         // 将中间件绑定到的公共路径

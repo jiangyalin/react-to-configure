@@ -85,7 +85,7 @@ export default{
         loaders: [
           'style-loader',
           'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[local]___[hash:base64:5]', // class添加唯一编码
-          'postcss?parser=postcss-scss'
+          'postcss-loader?parser=postcss-scss'
         ] // webpack2 所有插件必须加上-loader，不再允许缩写
       }
     ]
