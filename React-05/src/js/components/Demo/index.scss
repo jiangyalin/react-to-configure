@@ -1,0 +1,9 @@
+*{
+  color: red;
+}
+.box{
+  background-image: url("./../../../images/image.png");
+  box-sizing: border-box;
+  transition: .5s;
+  font-size: 18px;
+}
