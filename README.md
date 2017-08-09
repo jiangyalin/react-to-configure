@@ -4,19 +4,14 @@
 
 React-05可直接用于生产环境
 
-
 React-01(已完成)
 
 热更替+ES6+CSS唯一编码
-
 基于webpack3
 
 运行方法：
-
 1. 安装依赖： npm install
-
 2. 运行：npm run dev
-
 默认访问地址：http://localhost:8081/
 
 
